@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES2021",
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true,
+		"strict": true,
+		"allowJs": false,
+		"skipLibCheck": true,
+		"strictNullChecks": true,
+		"noUnusedLocals": true,
+		"sourceMap": true,
+		"outDir": "out"
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}
