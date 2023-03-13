@@ -1,0 +1,131 @@
+/* Code syntax highlight */
+@import "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/github-dark.min.css";
+
+@import "css/exploit.css";
+@import "css/footer.css";
+@import "css/header.css";
+@import "css/index.css";
+@import "css/misc.css";
+@import "css/404.css";
+
+:root {
+    --color-black: #000000;
+    --color-navy: #081624;
+    --color-navy-tl: rgba(48,20,48,0.5);
+    --color-navy-dark: #031018;
+    --color-navy-light: #1a1d2f;
+    --color-navy-light-super: #29283e;
+    --color-red: #621214;
+    --color-red-light: #952d31;
+    --color-pink: #db6efe;
+    --color-pink-dark: #ab4ede;
+    --color-gold: #865a13;
+    --color-green: #125310;
+    --color-grey: #ededed;
+    --color-khaki:#f0e68c;
+    --color-white: #efefef;
+    --color-white-tl-little: rgba(255,255,255,0.7);
+    --color-white-tl: rgba(255,255,255,0.5);
+    --color-white-tl-super: rgba(255,255,255,0.2);
+
+    /* font */
+    --font-family-basic: sans-serif;
+    --font-family-logo: courier;
+
+    /* Pagefind UI */
+    --pagefind-ui-scale: 0.8;
+    --pagefind-ui-primary: #034ad8;
+    --pagefind-ui-text: var(--color-white);
+    --pagefind-ui-background: var(--color-navy-light-super);
+    --pagefind-ui-border: var(--color-grey);
+    --pagefind-ui-tag: var(--color-grey);
+    --pagefind-ui-border-width: 1.5px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: var(--font-family-basic);
+}
+
+html,body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: 5px;
+}
+html::-webkit-scrollbar-track {
+    background: none;
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--color-navy-light-super);
+}
+
+body {
+    background-color: var(--color-navy);
+    font-family: var(--font-family-basic);
+    font-size: 17px;
+    color: var(--color-white-tl-little);
+    line-height: 1.8em;
+}
+
+h1,h2,h3,h4 {
+    line-height: 1.2em;
+}
+
+h1 { font-size: 2.8em; color: var(--color-white); }
+h2 { font-size: 2.0em; color: var(--color-white); }
+h3 { font-size: 1.4em; color: var(--color-white); }
+h4 { font-size: 1.2em; }
+
+a:link,a:visited {
+    color: var(--pink);
+    filter: brightness(1.4);
+}
+
+strong {
+    color: var(--color-white);
+}
+
+pre code {
+    font-size: 0.95em;
+}
+pre code::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+pre code::-webkit-scrollbar-track {
+    background: none;
+}
+pre code::-webkit-scrollbar-thumb {
+    background: var(--color-white-tl-super);
+}
+
+/* Overwrite Highlight JS */
+.hljs {
+    background: var(--color-navy-light-super);
+    border-radius: 12px;
+    color: var(--color-white);
+}
+
+ol,ul {
+    padding-left: 18px;
+}
+
+main {
+    min-height: 100vh;
+    padding: 16px;
+}
+
+hr {
+    border: 1.4px solid var(--color-white-tl-super);
+}
+
+@media screen and (max-width: 480px) {
+    ol,ul {
+        padding-left: 12px;
+    }
+}

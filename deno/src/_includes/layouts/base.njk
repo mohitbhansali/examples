@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title or site.title }} {% if url != "/"  %}| {{ site.title }}{% endif %}</title>
+        <meta name="description" content="{{ description or site.description }}">
+        {# <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> #}
+        <link rel="icon" type="image/x-icon" href="/assets/img/favicon-32.png">
+        <link rel="stylesheet" href="/styles.css">
+        {% if "/exploit/" in url %}
+        <script type="text/javascript" src="/js/exploit.js"></script>
+        {% endif %}
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@hideckies">
+        <meta name="twitter:creator" content="@hideckies">
+        <meta property="og:url" content="https://exploit-notes.hdks.org{{ url }}">
+        <meta property="og:title" content="{{ title or site.title }} {% if url != "/" %}| {{ site.title }}{% endif %}">
+        <meta property="og:description" content="{{ description or site.description }}">
+        <meta property="og:image" content="https://exploit-notes.hdks.org/img/screenshot.png">
+    </head>
+    <body>
+        {% if not "/exploit/" in url %}
+        <header>
+            <div class="header-inner">
+                <a href="/" id="title">
+                    <span>Exploit</span>
+                    <span>Notes</span>
+                </a>
+                <div id="search"></div>
+            </div>
+        </header>
+        {% endif %}
+        <div id="search-drawer-bg"></div>
+
+        <main class="{{ bodyClass }}">
+            {{ content | safe }}
+        </main>
+
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-socials">
+                    <a href="{{ site.github.url }}" target="_blank" rel="noopener">
+                        <img src="{{ site.github.icon }}" alt="{{ site.github.name }}">
+                        <span>GitHub</span>
+                    </a>
+                </div>
+                <div class="footer-creator">
+                    <span>Created by <a href="https://twitter.com/hideckies" target="_blank" rel="noopener">{{ site.author }}</a></span>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        // Display the black filter when searching
+        const searchDrawerBgElem = document.getElementById("search-drawer-bg");
+        if (searchDrawerBgElem) {
+            searchDrawerBgElem.addEventListener('click', () => {
+                searchDrawerBgElem.style.display = "none";
+                drawerElem.style.visibility = "hidden";
+                drawerElem.style.opacity = 0;
+            });
+        }
+
+        const drawerElem = document.querySelector(".pagefind-ui__drawer");
+        const inputElem = document.querySelector(".pagefind-ui__search-input");
+
+        inputElem.addEventListener('focus', () => {
+            if (searchDrawerBgElem) {
+                searchDrawerBgElem.style.display = "block";
+                drawerElem.style.visibility = "visible";
+                drawerElem.style.opacity = 1;
+            }
+        });
+    });
+</script>

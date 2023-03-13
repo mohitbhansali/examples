@@ -1,0 +1,300 @@
+---
+layout: layouts/base.njk
+bodyClass: body-index
+---
+
+<h1 id="title">{{ site.title }}</h1>
+<p id="description">
+    {{ site.description }}
+</p>
+
+{# Links #}
+<div id="links">
+    <a href="{{ site.hash_cracker.url }}" target="_blank" rel="noopener" class="hash-cracker" title="{{ site.hash_cracker.name }}">
+        <img src="{{ site.hash_cracker.icon }}" alt="{{ site.hash_cracker.name }}">
+    </a>
+    <a href="{{ site.github.url }}" target="_blank" rel="noopener" title="{{ site.github.name }}">
+        <img src="{{ site.github.icon }}" alt="{{ site.github.name }}">
+    </a>
+</div>
+{# /Links #}
+
+{# List of exploit #}
+<div id="exploits">
+
+    {# Reconnaissance #}
+    <div class="block red reconnaissance">
+        <h3 class="category">Reconnaissance</h3>
+
+        <ul class="list">
+            {%- for page in search.pages("category1=reconnaissance", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {%- endfor %}
+        </ul>
+    </div>
+    {# /Reconnaissance #}
+
+    {# Linux #}
+    <div class="block gray linux">
+        <h3 class="category">Linux</h3>
+
+        <h4 class="subcategory">Privilege Escalation</h4>
+        <ul>
+            {% for page in search.pages("category1=linux category2=privilege-escalation category3=undefined", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Sudo PrivEsc</h4>
+        <ul>
+            {% for page in search.pages("category1=linux category2=privilege-escalation category3=sudo", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Post Exploitation</h4>
+        <ul>
+            {% for page in search.pages("category1=linux category2=post-exploitation", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Others</h4>
+        <ul>
+            {% for page in search.pages("category1=linux category2=undefined", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {# /Linux #}
+
+    {# Web #}
+    <div class="block green web">
+        <h3 class="category">Web</h3>
+
+        <h4 class="subcategory">Methods</h4>
+        <ul>
+            {% for page in search.pages("category1=web category2=method", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Security Risks</h4>
+        <ul>
+            {% for page in search.pages("category1=web category2=security-risk", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">CMS</h4>
+        <ul>
+            {% for page in search.pages("category1=web category2=cms", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Frameworks</h4>
+        <ul>
+            {% for page in search.pages("category1=web category2=framework", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">API</h4>
+        <ul>
+            {% for page in search.pages("category1=web category2=api", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Others</h4>
+        <ul>
+            {% for page in search.pages("category1=web category2=undefined", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    {# /Web #}
+
+    {# Network #}
+    <div class="block purple network">
+        <h3 class="category">Network</h3>
+
+        <h4 class="subcategory">Protocols</h4>
+        <ul>
+            {% for page in search.pages("category1=network category2=protocol", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Others</h4>
+        <ul>
+            {% for page in search.pages("category1=network category2=undefined", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {# /Network #}
+
+    {# Windows #}
+    <div class="block cyan windows">
+        <h3 class="category">Windows</h3>
+
+        <h4 class="subcategory">Active Directory</h4>
+        <ul>
+            {% for page in search.pages("category1=windows category2=active-directory", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Protocols</h4>
+        <ul>
+            {% for page in search.pages("category1=windows category2=protocol", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Privilege Escalation</h4>
+        <ul>
+            {% for page in search.pages("category1=windows category2=privilege-escalation", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Others</h4>
+        <ul>
+            {% for page in search.pages("category1=windows category2=undefined", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    {# /Windows #}
+
+    {# DNS #}
+    <div class="block orange dns">
+        <h3 class="category">DNS</h3>
+
+         <ul>
+            {% for page in search.pages("category1=dns", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {# /DNS #}
+
+    {# Database #}
+    <div class="block lime database">
+        <h3 class="category">Database</h3>
+
+        <ul>
+            {% for page in search.pages("category1=database", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {# /Database #}
+
+    {# Container #}
+    <div class="block blue container">
+        <h3 class="category">Container</h3>
+
+        <h4 class="subcategory">Docker</h4>
+        <ul>
+            {% for page in search.pages("category1=container category2=docker", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Kubernetes</h4>
+        <ul>
+            {% for page in search.pages("category1=container category2=kubernetes", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {# /Container #}
+
+    {# Cryptography #}
+    <div class="block yellow cryptography">
+        <h3 class="category">Cryptography</h3>
+
+        <ul>
+            {% for page in search.pages("category1=cryptography", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="subcategory">Tools</h4>
+        <ul>
+            {% for page in search.pages("category1=cryptography category2=tool", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {# /Cryptography #}
+
+    {# Binary Exploitation #}
+    <div class="block brown binary-exploitation">
+        <h3 class="category">Binary Exploitation</h3>
+
+        <ul>
+            <ul>
+            {% for page in search.pages("category1=binary-exploitation category2=undefined", "title") %}
+            <li>
+                <a href="{{ page.data.url }}">{{ page.data.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {# /Binary Exploitation #}
+
+</div>
+{# /List of exploit #}
